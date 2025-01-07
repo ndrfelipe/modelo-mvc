@@ -16,10 +16,12 @@
     "connect-mongo": "^5.1.0",
     "core-js": "^3.3.2",
     "css-loader": "^3.2.0",
+    "csurf": "^1.10.0",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
     "mongoose": "^8.9.2",
     "regenerator-runtime": "^0.13.3",
     "style-loader": "^1.0.0"

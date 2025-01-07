@@ -1,14 +1,8 @@
-const HomeModel = require('../models/HomeModel')
-
-HomeModel.create({
-    titulo: 'Entrada AP',
-    descricao: 'Reserva criada para acompanhar a quantia necessária para a entrada no AP'
-})
-    .then(dados => console.log(dados))
-    .catch(e => console.log(e));
-
 exports.paginaInicial = (req, res, next) => {
-    res.render('index');
+    res.render('index', {
+        titulo: 'Entre com seu usuário',
+        num: [0, 1, 2, 3, 4]
+    } );
     next()
 }
 

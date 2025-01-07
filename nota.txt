@@ -1,0 +1,3 @@
+No modelo MVC, as ROTAS decidem quais controllers serão acionados. Os controllers
+decidem quais os models e views que serão utilizados em determinada rota.
+Os models trabalham com dados.
