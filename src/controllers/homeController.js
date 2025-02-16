@@ -1,12 +1,12 @@
-exports.paginaInicial = (req, res, next) => {
-    res.render('index', {
-        titulo: 'Entre com seu usuário',
-        num: [0, 1, 2, 3, 4]
-    } );
-    next()
-}
+const Contato = require("../models/ContatoModel")
 
-exports.trataPost = (req, res) => {
-    res.send(req.body)
-    return
+exports.index = async (req, res, next) => {
+    try{
+        const contatos = await Contato.buscaContatos();
+        res.render('index', { contatos });
+    }catch(e){
+        console.log(e);
+        return res.render('404');
+    }
+    
 }

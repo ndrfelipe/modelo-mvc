@@ -1,0 +1,62 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8">
+        <h5 class="display-4 text-center">Criar conta ou Entrar</h5>
+        <p class="text-center lead"> Faça login ou crie sua conta abaixo. </p>
+
+        <!-- flash messages -->
+        <%- include("includes/messages") %>
+
+        <div class="row mb-2 p-2">
+          <!-- Cadastro -->
+          <div class="col-lg">
+            <h4>Faça seu cadastro</h4>
+            <p>Se você não tem conta, faça seu cadastro abaixo.</p>
+            <form action="/login/register" method="POST">
+              <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+          </div>
+
+          <!-- Login -->
+          <div class="col-lg">
+            <h4>Entrar no sistema</h4>
+            <p>Entre no sistema, caso já tenha uma conta!</p>
+            <form action="/login/login" method="POST">
+              <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

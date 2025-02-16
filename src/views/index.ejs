@@ -1,15 +1,55 @@
 <%- include('includes/head') %>
+<%- include('includes/nav') %>
 
-<section class="container">
-    <h1>
-      <%= csrfToken %>
-    </h1>
-    <form action="/" method="post">
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-      <label for="cliente">Cliente</label>
-      <input type="text" name="cliente" id="cliente">
-      <button>Enviar</button>
-    </form>
-</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8">
+        <h5 class="display-1 text-center mt-3">Agenda</h5>
+        <p class="text-center lead"> Olá <span style="color: goldenrod;"><%= user.email %></span>, seus contatos estão abaixo: </p>
+        
+        <!-- flash messages -->
+        <%- include("includes/messages") %>
+
+        <% if(contatos.length > 0) {  %>
+          <div class="responsive-table">
+            <table class="table my-1 text-center">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Sobrenome</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <% contatos.forEach((contato, index) => { %> <!-- Correção na iteração -->
+                  <tr>
+                    <th scope="row"><%= index + 1 %></th> <!-- Correção na exibição do índice -->
+                    <td><%= contato.nome %></td> <!-- Correção na interpolação -->
+                    <td><%= contato.sobrenome %></td>
+                    <td><%= contato.email %></td>
+                    <td><%= contato.telefone %></td>
+                    <td><a class="btn btn-sm btn-primary" href="/contato/index/<%= contato._id %>">Editar</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+                  </tr>
+                <% }); %>
+                
+              </tbody>
+            </table>
+          </div>
+         <% } else { %>
+          <p class="text-center">Você ainda não possui contatos! </p>
+         <% }; %>
+        
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
 
 <%- include('includes/footer') %>

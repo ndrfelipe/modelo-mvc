@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Houve um erro :/</h1>
-</body>
-</html>
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-3"></div>
+  
+      <div class="col-lg-6">
+        <div class="card text-bg-warning mb-3 text-center mt-5">
+          <div class="card-header">Atenção!</div>
+            <div class="card-body">
+              <h5 class="card-title display-1">Erro 404!</h5>
+              <p class="card-text"> A página que você procura não existe</p>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6"><a href="/login/index" class="btn btn-dark mb-2">Voltar</a></div>
+              <div class="col-lg-3"></div>
+            </div>
+            
+        </div>
+        
+      </div>
+  
+      <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>

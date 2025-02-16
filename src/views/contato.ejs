@@ -1,0 +1,49 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+
+    <div class="col-lg-6">
+        <h5 class="display-1 text-center mt-3">Contatos</h5>
+        <p class="text-center lead"> crie ou edite os seus contatos: </p>
+        
+        <!-- flash messages -->
+        <%- include("includes/messages") %>
+
+        <% if (contato._id) {%>
+          <form class="mb-1" action="/contato/edit/<%= contato._id %>" method="POST">
+        <% } else {%>
+          <form class="mb-1" action="/contato/register" method="POST">
+        <% } %>
+        
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="mb-3">
+              <label for="exampleInputnome1" class="form-label">Nome</label>
+              <input value="<%= contato.nome %>" type="text" class="form-control" id="exampleInputnome1" aria-describedby="nomeHelp" name="nome">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputsobrenome1" class="form-label">Sobrenome</label>
+                <input value="<%= contato.sobrenome %>" type="text" class="form-control" id="exampleInputSobrenome1" aria-describedby="SobrenomeHelp" name="sobrenome">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input value="<%= contato.email %>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="EmailHelp" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputTelefone1" class="form-label">Telefone</label>
+                <input value="<%= contato.telefone %>" type="tel" class="form-control" id="Telefone1" aria-describedby="TelefoneHelp" name="telefone">
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+        
+    </div>
+
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
